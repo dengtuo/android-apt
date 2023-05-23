@@ -8,8 +8,9 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_7
 }
 
-dependencies{
-    implementation 'com.google.auto.service:auto-service:1.0-rc7'
+dependencies {
+    compileOnly 'com.google.auto.service:auto-service-annotations:1.0-rc7'
     annotationProcessor 'com.google.auto.service:auto-service:1.0-rc7'
+    implementation 'com.squareup:javapoet:1.10.0'
     implementation project(":apt-annotation")
 }
