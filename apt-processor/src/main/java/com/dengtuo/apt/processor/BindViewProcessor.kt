@@ -2,6 +2,7 @@ package com.dengtuo.apt.processor
 
 import com.google.auto.service.AutoService
 import javax.annotation.processing.AbstractProcessor
+import javax.annotation.processing.Messager
 import javax.annotation.processing.ProcessingEnvironment
 import javax.annotation.processing.Processor
 import javax.annotation.processing.RoundEnvironment
@@ -14,13 +15,15 @@ import javax.tools.Diagnostic
 class BindViewProcessor : AbstractProcessor() {
 
     private var mElementUtils: Elements? = null
+    private var messager:Messager? = null
 
     private val mClassCreatorFactoryMap = mutableMapOf<String, ClassCreatorFactory>()
 
     override fun init(p0: ProcessingEnvironment?) {
         super.init(p0)
         println("BizPrintProcessor init")
-        p0?.messager?.printMessage(Diagnostic.Kind.NOTE, "BizPrintProcessor init")
+        messager = p0?.messager
+        messager?.printMessage(Diagnostic.Kind.NOTE, "BizPrintProcessor init")
         mElementUtils = p0?.elementUtils
     }
 
