@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Androidapt"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".MainV2Activity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Androidapt">

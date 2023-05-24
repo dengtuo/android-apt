@@ -1,5 +1,6 @@
 package com.dengtuo.apt.app
 
+
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -7,9 +8,11 @@ import com.dengtuo.apt.annotation.BindView
 
 class MainActivity : AppCompatActivity() {
 
+    @JvmField
     @BindView(R.id.tv_title)
     var mTvTitle: TextView? = null
 
+    @JvmField
     @BindView(R.id.tv_desc)
     var mTvDesc: TextView? = null
 
