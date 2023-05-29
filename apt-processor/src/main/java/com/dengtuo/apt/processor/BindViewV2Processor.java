@@ -3,7 +3,6 @@ package com.dengtuo.apt.processor;
 import com.dengtuo.apt.annotation.BindView;
 import com.dengtuo.apt.processor.utils.CloseAbility;
 import com.dengtuo.apt.processor.utils.Looger;
-import com.google.auto.service.AutoService;
 
 import java.io.Writer;
 import java.util.HashMap;
@@ -14,7 +13,6 @@ import java.util.function.Consumer;
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
-import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
@@ -23,9 +21,8 @@ import javax.lang.model.element.VariableElement;
 import javax.lang.model.util.Elements;
 import javax.tools.JavaFileObject;
 
-@AutoService(Processor.class)
+//@AutoService(Processor.class)
 public class BindViewV2Processor extends AbstractProcessor {
-    private BindViewProcessor mBindViewProcessor = new BindViewProcessor();
     private Looger mLooger = null;
     private Messager messager = null;
     private final HashMap<String, ClassCreatorFactory> mClassCreatorFactoryHashMap = new HashMap<>();
@@ -42,7 +39,7 @@ public class BindViewV2Processor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-        mLooger.info("processing....");
+        mLooger.info("BizPrintProcessor processing....");
         mClassCreatorFactoryHashMap.clear();
         //获取不同的Activity
         Set<? extends Element> elements = roundEnvironment.getElementsAnnotatedWith(BindView.class);

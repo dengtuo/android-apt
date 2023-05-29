@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'org.jetbrains.kotlin.jvm'
-//    id 'kotlin-kapt'
+    id 'kotlin-kapt'
 }
 
 java {
@@ -10,10 +10,14 @@ java {
 }
 
 dependencies {
-    implementation project(path: ':apt-annotation')
-    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc7'
-    compileOnly 'com.google.auto.service:auto-service-annotations:1.0-rc7'
 
+    implementation project(path: ':apt-annotation')
+    compileOnly 'com.google.auto.service:auto-service-annotations:1.0-rc7'
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc7'
     implementation 'com.squareup:javapoet:1.10.0'
-//    implementation "com.squareup:kotlinpoet:1.6.0"
+
+    //在处理注解的时候，当注解处理器以Kotlin类的形式出现，需要使用kapt注解
+    //kapt 'com.google.auto.service:auto-service:1.0-rc7'
+    //在处理注解的时候，使用面向对象的方式生成Kotlin类
+    //implementation "com.squareup:kotlinpoet:1.6.0"
 }

@@ -1,0 +1,2 @@
+//这个文件使用的时候，和@AutoService(Processor::class) 可以二选一
+com.dengtuo.apt.processor.BindViewProcessor
